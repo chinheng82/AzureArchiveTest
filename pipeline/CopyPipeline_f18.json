@@ -1,0 +1,77 @@
+{
+	"name": "CopyPipeline_f18",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_f18",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "mftadlsv2/datalake/"
+					},
+					{
+						"name": "Destination",
+						"value": "mftadlsv2/ch/"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "BinarySource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"maxConcurrentConnections": 10,
+							"recursive": true,
+							"wildcardFileName": "*",
+							"deleteFilesAfterCompletion": true
+						},
+						"formatSettings": {
+							"type": "BinaryReadSettings"
+						}
+					},
+					"sink": {
+						"type": "BinarySink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings",
+							"maxConcurrentConnections": 10,
+							"copyBehavior": "FlattenHierarchy"
+						}
+					},
+					"enableStaging": false,
+					"enableSkipIncompatibleRow": false,
+					"logStorageSettings": {
+						"linkedServiceName": {
+							"referenceName": "AzureDataLakeStorage1",
+							"type": "LinkedServiceReference"
+						},
+						"path": "mftadlsv2/ch"
+					},
+					"skipErrorFile": {
+						"fileMissing": true
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_f18",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_f18",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
