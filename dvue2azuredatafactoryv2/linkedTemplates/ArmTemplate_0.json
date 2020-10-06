@@ -7,9 +7,17 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "dvue2azuredatafactoryv2"
 		},
+		"ArchiveADLSGen2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ArchiveADLSGen2'"
+		},
 		"AzureDataLakeStorage1_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
+		"ArchiveADLSGen2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://dvue2azuredatalakev2.dfs.core.windows.net"
 		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"type": "string",
@@ -20,6 +28,23 @@
 		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
 	},
 	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/ArchiveADLSGen2')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('ArchiveADLSGen2_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('ArchiveADLSGen2_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
 		{
 			"name": "[concat(parameters('factoryName'), '/AzureDataLakeStorage1')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
@@ -51,8 +76,8 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"folderPath": "ch",
-						"fileSystem": "mftadlsv2"
+						"folderPath": "archive",
+						"fileSystem": "archiveadlsv2"
 					}
 				}
 			},
@@ -74,8 +99,12 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"folderPath": "datalake",
+						"folderPath": "ch",
 						"fileSystem": "mftadlsv2"
+					},
+					"compression": {
+						"type": "TarGZip",
+						"level": "Fastest"
 					}
 				}
 			},
@@ -84,13 +113,13 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/CopyPipeline_f18')]",
+			"name": "[concat(parameters('factoryName'), '/ExtractPipeline')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"activities": [
 					{
-						"name": "Copy_f18",
+						"name": "Copy data1",
 						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
@@ -100,50 +129,29 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [
-							{
-								"name": "Source",
-								"value": "mftadlsv2/datalake/"
-							},
-							{
-								"name": "Destination",
-								"value": "mftadlsv2/ch/"
-							}
-						],
+						"userProperties": [],
 						"typeProperties": {
 							"source": {
 								"type": "BinarySource",
 								"storeSettings": {
 									"type": "AzureBlobFSReadSettings",
-									"maxConcurrentConnections": 10,
 									"recursive": true,
-									"wildcardFileName": "*",
-									"deleteFilesAfterCompletion": true
+									"deleteFilesAfterCompletion": false
 								},
 								"formatSettings": {
-									"type": "BinaryReadSettings"
+									"type": "BinaryReadSettings",
+									"compressionProperties": {
+										"type": "TarGZipReadSettings"
+									}
 								}
 							},
 							"sink": {
 								"type": "BinarySink",
 								"storeSettings": {
-									"type": "AzureBlobFSWriteSettings",
-									"maxConcurrentConnections": 10,
-									"copyBehavior": "PreserveHierarchy"
+									"type": "AzureBlobFSWriteSettings"
 								}
 							},
-							"enableStaging": false,
-							"enableSkipIncompatibleRow": false,
-							"logStorageSettings": {
-								"linkedServiceName": {
-									"referenceName": "AzureDataLakeStorage1",
-									"type": "LinkedServiceReference"
-								},
-								"path": "mftadlsv2/ch"
-							},
-							"skipErrorFile": {
-								"fileMissing": true
-							}
+							"enableStaging": false
 						},
 						"inputs": [
 							{
@@ -161,12 +169,12 @@
 						]
 					}
 				],
+				"concurrency": 1,
 				"annotations": []
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/SourceDataset_f18')]",
-				"[concat(variables('factoryId'), '/datasets/DestinationDataset_f18')]",
-				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
+				"[concat(variables('factoryId'), '/datasets/DestinationDataset_f18')]"
 			]
 		}
 	]

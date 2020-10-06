@@ -7,9 +7,17 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "dvue2azuredatafactoryv2"
 		},
+		"ArchiveADLSGen2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ArchiveADLSGen2'"
+		},
 		"AzureDataLakeStorage1_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
+		"ArchiveADLSGen2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://dvue2azuredatalakev2.dfs.core.windows.net"
 		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"type": "string",
@@ -42,8 +50,14 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
+					"ArchiveADLSGen2_accountKey": {
+						"value": "[parameters('ArchiveADLSGen2_accountKey')]"
+					},
 					"AzureDataLakeStorage1_accountKey": {
 						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					},
+					"ArchiveADLSGen2_properties_typeProperties_url": {
+						"value": "[parameters('ArchiveADLSGen2_properties_typeProperties_url')]"
 					},
 					"AzureDataLakeStorage1_properties_typeProperties_url": {
 						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"

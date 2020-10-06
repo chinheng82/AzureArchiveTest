@@ -5,8 +5,14 @@
 		"factoryName": {
 			"value": "dvue2azuredatafactoryv2"
 		},
+		"ArchiveADLSGen2_accountKey": {
+			"value": ""
+		},
 		"AzureDataLakeStorage1_accountKey": {
 			"value": ""
+		},
+		"ArchiveADLSGen2_properties_typeProperties_url": {
+			"value": "https://dvue2azuredatalakev2.dfs.core.windows.net"
 		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"value": "https://dvue2azuredatalakev2.dfs.core.windows.net"
