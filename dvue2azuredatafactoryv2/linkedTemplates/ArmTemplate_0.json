@@ -227,7 +227,6 @@
 								"storeSettings": {
 									"type": "AzureBlobFSReadSettings",
 									"recursive": true,
-									"wildcardFileName": "*.tar.gz",
 									"deleteFilesAfterCompletion": true
 								},
 								"formatSettings": {
