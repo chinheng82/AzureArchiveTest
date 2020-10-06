@@ -94,60 +94,6 @@
 								"parameters": {}
 							}
 						]
-					},
-					{
-						"name": "CopyTarToDone",
-						"type": "Copy",
-						"dependsOn": [
-							{
-								"activity": "ExtractFiles",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "BinarySource",
-								"storeSettings": {
-									"type": "AzureBlobFSReadSettings",
-									"recursive": true,
-									"deleteFilesAfterCompletion": true
-								},
-								"formatSettings": {
-									"type": "BinaryReadSettings"
-								}
-							},
-							"sink": {
-								"type": "BinarySink",
-								"storeSettings": {
-									"type": "AzureBlobFSWriteSettings"
-								}
-							},
-							"enableStaging": false
-						},
-						"inputs": [
-							{
-								"referenceName": "TarSource",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "DestinationDataset_f18",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
 					}
 				],
 				"concurrency": 1,
@@ -155,8 +101,7 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/SourceDataset_f18')]",
-				"[concat(variables('factoryId'), '/datasets/DestinationDataset_f18')]",
-				"[concat(variables('factoryId'), '/datasets/TarSource')]"
+				"[concat(variables('factoryId'), '/datasets/DestinationDataset_f18')]"
 			]
 		},
 		{
