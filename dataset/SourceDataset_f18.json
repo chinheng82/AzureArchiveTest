@@ -10,8 +10,12 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "datalake",
+				"folderPath": "ch",
 				"fileSystem": "mftadlsv2"
+			},
+			"compression": {
+				"type": "TarGZip",
+				"level": "Fastest"
 			}
 		}
 	}

@@ -10,8 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "ch",
-				"fileSystem": "mftadlsv2"
+				"folderPath": "archive",
+				"fileSystem": "archiveadlsv2"
 			}
 		}
 	}
