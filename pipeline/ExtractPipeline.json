@@ -13,19 +13,29 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [],
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "mftadlsv2/ch/"
+					},
+					{
+						"name": "Destination",
+						"value": "archiveadlsv2/archive/"
+					}
+				],
 				"typeProperties": {
 					"source": {
 						"type": "BinarySource",
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
-							"deleteFilesAfterCompletion": false
+							"deleteFilesAfterCompletion": true
 						},
 						"formatSettings": {
 							"type": "BinaryReadSettings",
 							"compressionProperties": {
-								"type": "TarGZipReadSettings"
+								"type": "TarGZipReadSettings",
+								"preserveCompressionFileNameAsFolder": false
 							}
 						}
 					},
