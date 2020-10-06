@@ -86,8 +86,6 @@
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
-							"wildcardFolderPath": "*",
-							"wildcardFileName": "*.tar.gz",
 							"deleteFilesAfterCompletion": true
 						},
 						"formatSettings": {
