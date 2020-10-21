@@ -59,7 +59,7 @@
 						"referenceName": "DestinationDataset_f18",
 						"type": "DatasetReference",
 						"parameters": {
-							"testingCH": "mason"
+							"testingCH": "archive/mason"
 						}
 					}
 				]
