@@ -2,7 +2,7 @@
 	"name": "DestinationDataset_f18",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureDataLakeStorage2",
+			"referenceName": "AzureDataLakeStorage1",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
@@ -15,7 +15,11 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "@dataset().testingCH"
+				"folderPath": {
+					"value": "@dataset().testingCH",
+					"type": "Expression"
+				},
+				"fileSystem": "archiveadlsv2"
 			}
 		}
 	}
