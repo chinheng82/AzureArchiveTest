@@ -57,7 +57,10 @@
 				"outputs": [
 					{
 						"referenceName": "DestinationDataset_f18",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"testingCH": "test"
+						}
 					}
 				]
 			},
