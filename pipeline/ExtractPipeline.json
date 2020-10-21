@@ -60,7 +60,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"testingCH": {
-								"value": "archive/@dayOfMonth(utcnow())",
+								"value": "archive/@utcnow()",
 								"type": "Expression"
 							}
 						}
