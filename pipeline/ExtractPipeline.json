@@ -59,7 +59,10 @@
 						"referenceName": "DestinationDataset_f18",
 						"type": "DatasetReference",
 						"parameters": {
-							"testingCH": "archive/@formatDateTime(utcnow(),'yyyy')"
+							"testingCH": {
+								"value": "archive/@dayOfMonth(utcnow())",
+								"type": "Expression"
+							}
 						}
 					}
 				]
