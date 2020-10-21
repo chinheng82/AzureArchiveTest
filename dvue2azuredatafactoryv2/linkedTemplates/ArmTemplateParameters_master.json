@@ -11,10 +11,16 @@
 		"AzureDataLakeStorage1_accountKey": {
 			"value": ""
 		},
+		"AzureDataLakeStorage2_accountKey": {
+			"value": ""
+		},
 		"ArchiveADLSGen2_properties_typeProperties_url": {
 			"value": "https://dvue2azuredatalakev2.dfs.core.windows.net"
 		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://dvue2azuredatalakev2.dfs.core.windows.net"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
 			"value": "https://dvue2azuredatalakev2.dfs.core.windows.net"
 		},
 		"containerUri": {
