@@ -60,7 +60,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"testingCH": {
-								"value": "@concat('archive//', utcnow())",
+								"value": "@concat('archive//', formatDateTime(utcnow(),'yyyy')')",
 								"type": "Expression"
 							}
 						}
