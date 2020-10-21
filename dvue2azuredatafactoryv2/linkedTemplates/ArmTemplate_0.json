@@ -230,7 +230,7 @@
 								"referenceName": "DestinationDataset_f18",
 								"type": "DatasetReference",
 								"parameters": {
-									"testingCH": "archive/mason"
+									"testingCH": "archive/@formatDateTime(utcnow(),'yyyy')"
 								}
 							}
 						]
