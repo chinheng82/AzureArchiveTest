@@ -59,8 +59,8 @@
 						"referenceName": "DestinationDataset_f18",
 						"type": "DatasetReference",
 						"parameters": {
-							"archivepath": {
-								"value": "@concat('archive','/',formatDateTime(utcnow(),'yyyy'),formatDateTime(utcnow(),'MM'),formatDateTime(utcnow(),'dd'))",
+							"peopath": {
+								"value": "@concat('data','/',\n'mft','/','gf','/','otwf','/','peo','/','incoming','/',formatDateTime(utcnow(),'yyyy'),formatDateTime(utcnow(),'MM'),formatDateTime(utcnow(),'dd'))",
 								"type": "Expression"
 							}
 						}
@@ -115,7 +115,10 @@
 				"outputs": [
 					{
 						"referenceName": "TarDestination",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"archivepath": "@concat('archive','/',\n'otwf','/',formatDateTime(utcnow(),'yyyy'),formatDateTime(utcnow(),'MM'),formatDateTime(utcnow(),'dd'))"
+						}
 					}
 				]
 			}

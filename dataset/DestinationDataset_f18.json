@@ -6,7 +6,7 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"archivepath": {
+			"peopath": {
 				"type": "string"
 			}
 		},
@@ -16,10 +16,10 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": {
-					"value": "@dataset().archivepath",
+					"value": "@dataset().peopath",
 					"type": "Expression"
 				},
-				"fileSystem": "archiveadlsv2"
+				"fileSystem": "peoadlsv2"
 			}
 		}
 	}
