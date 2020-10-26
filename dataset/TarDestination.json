@@ -5,13 +5,17 @@
 			"referenceName": "ArchiveADLSGen2",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"archivepath": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "Binary",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "data/mft/gf/otwf/peo/incoming",
-				"fileSystem": "peoadlsv2"
+				"fileSystem": "archiveadlsv2"
 			}
 		}
 	}
