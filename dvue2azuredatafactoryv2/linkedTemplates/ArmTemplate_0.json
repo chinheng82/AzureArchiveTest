@@ -72,7 +72,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"parameters": {
-					"testingCH": {
+					"peopath": {
 						"type": "string"
 					}
 				},
@@ -82,10 +82,10 @@
 					"location": {
 						"type": "AzureBlobFSLocation",
 						"folderPath": {
-							"value": "@dataset().testingCH",
+							"value": "@dataset().peopath",
 							"type": "Expression"
 						},
-						"fileSystem": "archiveadlsv2"
+						"fileSystem": "peoadlsv2"
 					}
 				}
 			},
@@ -107,7 +107,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"folderPath": "ch",
+						"folderPath": "data/mft/gf/otwf/peo/incoming",
 						"fileSystem": "mftadlsv2"
 					},
 					"compression": {
@@ -129,12 +129,20 @@
 					"referenceName": "ArchiveADLSGen2",
 					"type": "LinkedServiceReference"
 				},
+				"parameters": {
+					"archivepath": {
+						"type": "string"
+					}
+				},
 				"annotations": [],
 				"type": "Binary",
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"folderPath": "done",
+						"folderPath": {
+							"value": "@dataset().archivepath",
+							"type": "Expression"
+						},
 						"fileSystem": "archiveadlsv2"
 					}
 				}
@@ -157,7 +165,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"folderPath": "ch",
+						"folderPath": "data/mft/gf/otwf/peo/incoming",
 						"fileSystem": "mftadlsv2"
 					}
 				}
@@ -230,8 +238,8 @@
 								"referenceName": "DestinationDataset_f18",
 								"type": "DatasetReference",
 								"parameters": {
-									"testingCH": {
-										"value": "@concat('archive','/',formatDateTime(utcnow(),'yyyy'),formatDateTime(utcnow(),'MM'),formatDateTime(utcnow(),'dd'))",
+									"peopath": {
+										"value": "@concat('data','/',\n'mft','/','gf','/','otwf','/','peo','/','incoming','/',formatDateTime(utcnow(),'yyyy'),formatDateTime(utcnow(),'MM'),formatDateTime(utcnow(),'dd'))",
 										"type": "Expression"
 									}
 								}
@@ -288,7 +296,9 @@
 							{
 								"referenceName": "TarDestination",
 								"type": "DatasetReference",
-								"parameters": {}
+								"parameters": {
+									"archivepath": "@concat('archive','/',\n'otwf','/',formatDateTime(utcnow(),'yyyy'),formatDateTime(utcnow(),'MM'),formatDateTime(utcnow(),'dd'))"
+								}
 							}
 						]
 					}
