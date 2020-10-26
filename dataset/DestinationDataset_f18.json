@@ -6,7 +6,7 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"testingCH": {
+			"archivepath": {
 				"type": "string"
 			}
 		},
@@ -16,7 +16,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": {
-					"value": "@dataset().testingCH",
+					"value": "@dataset().archivepath",
 					"type": "Expression"
 				},
 				"fileSystem": "archiveadlsv2"

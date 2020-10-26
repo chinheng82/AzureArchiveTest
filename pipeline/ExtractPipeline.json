@@ -59,7 +59,7 @@
 						"referenceName": "DestinationDataset_f18",
 						"type": "DatasetReference",
 						"parameters": {
-							"testingCH": {
+							"archivepath": {
 								"value": "@concat('archive','/',formatDateTime(utcnow(),'yyyy'),formatDateTime(utcnow(),'MM'),formatDateTime(utcnow(),'dd'))",
 								"type": "Expression"
 							}

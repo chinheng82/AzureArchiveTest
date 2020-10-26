@@ -10,8 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "done",
-				"fileSystem": "archiveadlsv2"
+				"folderPath": "data/mft/gf/otwf/peo/incoming",
+				"fileSystem": "peoadlsv2"
 			}
 		}
 	}
