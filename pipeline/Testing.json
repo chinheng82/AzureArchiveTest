@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "GetGzFiles",
+				"name": "Get Metadata1",
 				"type": "GetMetadata",
 				"dependsOn": [],
 				"policy": {
@@ -13,19 +13,14 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [
-					{
-						"name": "Extension",
-						"value": "*.tar.gz"
-					}
-				],
+				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
 						"referenceName": "SourceDataset_f18",
 						"type": "DatasetReference"
 					},
 					"fieldList": [
-						"lastModified"
+						"childItems"
 					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings"
