@@ -107,6 +107,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "*.tar.gz",
 						"folderPath": "data/mft/gf/otwf/peo/incoming",
 						"fileSystem": "mftadlsv2"
 					},
@@ -165,6 +166,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "*.tar.gz",
 						"folderPath": "data/mft/gf/otwf/peo/incoming",
 						"fileSystem": "mftadlsv2"
 					}
