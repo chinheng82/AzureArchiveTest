@@ -16,14 +16,15 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "SourceDataset_f18",
+						"referenceName": "TestDataSet",
 						"type": "DatasetReference"
 					},
 					"fieldList": [
 						"childItems"
 					],
 					"storeSettings": {
-						"type": "AzureBlobFSReadSettings"
+						"type": "AzureBlobFSReadSettings",
+						"recursive": true
 					},
 					"formatSettings": {
 						"type": "BinaryReadSettings"
