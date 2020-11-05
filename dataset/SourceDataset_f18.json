@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "data/mft/gf/otwf/peo/incoming",
+				"folderPath": "data/mft/suzjv/classtar/peo/incoming",
 				"fileSystem": "mftadlsv2"
 			},
 			"compression": {

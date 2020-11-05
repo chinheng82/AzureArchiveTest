@@ -60,7 +60,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"peopath": {
-								"value": "@concat('data','/',\n'mft','/','gf','/','otwf','/','peo','/','incoming','/',formatDateTime(utcnow(),'yyyy'),formatDateTime(utcnow(),'MM'),formatDateTime(utcnow(),'dd'))",
+								"value": "@concat('data','/',\n'mft','/','suzjv','/','classtar','/','peo','/','incoming','/',formatDateTime(utcnow(),'yyyy'),formatDateTime(utcnow(),'MM'),formatDateTime(utcnow(),'dd'))",
 								"type": "Expression"
 							}
 						}
@@ -117,7 +117,7 @@
 						"referenceName": "TarDestination",
 						"type": "DatasetReference",
 						"parameters": {
-							"archivepath": "@concat('archive','/',\n'otwf','/',formatDateTime(utcnow(),'yyyy'),formatDateTime(utcnow(),'MM'),formatDateTime(utcnow(),'dd'))"
+							"archivepath": "@concat('archive','/',\n'classtar','/','suzjv','/',formatDateTime(utcnow(),'yyyy'),formatDateTime(utcnow(),'MM'),formatDateTime(utcnow(),'dd'))"
 						}
 					}
 				]
