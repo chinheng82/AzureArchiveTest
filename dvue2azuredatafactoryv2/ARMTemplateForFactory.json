@@ -93,7 +93,7 @@
 								"type": "DatasetReference",
 								"parameters": {
 									"peopath": {
-										"value": "@concat('data','/',\n'mft','/','gf','/','otwf','/','peo','/','incoming','/',formatDateTime(utcnow(),'yyyy'),formatDateTime(utcnow(),'MM'),formatDateTime(utcnow(),'dd'))",
+										"value": "@concat('data','/',\n'mft','/','suzjv','/','classtar','/','peo','/','incoming','/',formatDateTime(utcnow(),'yyyy'),formatDateTime(utcnow(),'MM'),formatDateTime(utcnow(),'dd'))",
 										"type": "Expression"
 									}
 								}
@@ -151,7 +151,7 @@
 								"referenceName": "TarDestination",
 								"type": "DatasetReference",
 								"parameters": {
-									"archivepath": "@concat('archive','/',\n'otwf','/',formatDateTime(utcnow(),'yyyy'),formatDateTime(utcnow(),'MM'),formatDateTime(utcnow(),'dd'))"
+									"archivepath": "@concat('archive','/',\n'classtar','/','suzjv','/',formatDateTime(utcnow(),'yyyy'),formatDateTime(utcnow(),'MM'),formatDateTime(utcnow(),'dd'))"
 								}
 							}
 						]
@@ -255,7 +255,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"folderPath": "data/mft/gf/otwf/peo/incoming",
+						"folderPath": "data/mft/suzjv/classtar/peo/incoming",
 						"fileSystem": "mftadlsv2"
 					},
 					"compression": {
@@ -313,7 +313,30 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"folderPath": "data/mft/gf/otwf/peo/incoming",
+						"folderPath": "data/mft/suzjv/classtar/peo/incoming",
+						"fileSystem": "mftadlsv2"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/TestDataSet')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureDataLakeStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Binary",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "ch",
 						"fileSystem": "mftadlsv2"
 					}
 				}
@@ -386,29 +409,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/ExtractPipeline')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/TestDataSet')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureDataLakeStorage1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "Binary",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"folderPath": "ch",
-						"fileSystem": "mftadlsv2"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
 			]
 		}
 	]
