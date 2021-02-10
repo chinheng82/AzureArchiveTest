@@ -192,7 +192,8 @@
 								"parameters": {}
 							},
 							"fieldList": [
-								"childItems"
+								"childItems",
+								"itemName"
 							],
 							"storeSettings": {
 								"type": "AzureBlobFSReadSettings",
@@ -436,7 +437,7 @@
 				"typeProperties": {
 					"frequency": "Minute",
 					"interval": 15,
-					"startTime": "2020-10-26T16:38:00.000Z",
+					"startTime": "2020-10-26T16:38:00Z",
 					"delay": "00:00:00",
 					"maxConcurrency": 50,
 					"retryPolicy": {
