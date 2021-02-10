@@ -230,7 +230,7 @@
 									"typeProperties": {
 										"variableName": "testVariable",
 										"value": {
-											"value": "@item().name",
+											"value": "@item().lastModified",
 											"type": "Expression"
 										}
 									}
