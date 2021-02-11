@@ -29,12 +29,8 @@
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
-							"modifiedDatetimeStart": {
-								"value": "@string(formatDateTime(addhours(utcnow(),2),'yyyy-MM-ddThh:mm:ss.fffZ'))",
-								"type": "Expression"
-							},
 							"modifiedDatetimeEnd": {
-								"value": "@string(formatDateTime(addhours(utcnow(),2),'yyyy-MM-ddThh:mm:ss.fffZ'))",
+								"value": "@string(formatDateTime(addhours(utcnow(),-1),'yyyy-MM-ddThh:mm:ss.fffZ'))",
 								"type": "Expression"
 							},
 							"deleteFilesAfterCompletion": false
@@ -100,12 +96,8 @@
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
-							"modifiedDatetimeStart": {
-								"value": "@string(formatDateTime(addhours(utcnow(),2),'yyyy-MM-ddThh:mm:ss.fffZ'))",
-								"type": "Expression"
-							},
 							"modifiedDatetimeEnd": {
-								"value": "@string(formatDateTime(addhours(utcnow(),2),'yyyy-MM-ddThh:mm:ss.fffZ'))",
+								"value": "@string(formatDateTime(addhours(utcnow(),-1),'yyyy-MM-ddThh:mm:ss.fffZ'))",
 								"type": "Expression"
 							},
 							"deleteFilesAfterCompletion": true
