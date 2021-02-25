@@ -70,58 +70,6 @@
 						}
 					]
 				}
-			},
-			{
-				"name": "CopyDone",
-				"type": "Copy",
-				"dependsOn": [],
-				"policy": {
-					"timeout": "7.00:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"source": {
-						"type": "BinarySource",
-						"storeSettings": {
-							"type": "AzureBlobFSReadSettings",
-							"recursive": true,
-							"modifiedDatetimeEnd": {
-								"value": "@string(formatDateTime(addhours(utcnow(),-1),'yyyy-MM-ddThh:mm:ss.fffZ'))",
-								"type": "Expression"
-							},
-							"deleteFilesAfterCompletion": true
-						},
-						"formatSettings": {
-							"type": "BinaryReadSettings"
-						}
-					},
-					"sink": {
-						"type": "BinarySink",
-						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
-						}
-					},
-					"enableStaging": false
-				},
-				"inputs": [
-					{
-						"referenceName": "TarSource",
-						"type": "DatasetReference"
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "TarDestination",
-						"type": "DatasetReference",
-						"parameters": {
-							"archivepath": "@concat('archive','/',\n'classtar','/','suzjv','/',formatDateTime(utcnow(),'yyyy'),formatDateTime(utcnow(),'MM'),formatDateTime(utcnow(),'dd'))"
-						}
-					}
-				]
 			}
 		],
 		"variables": {
