@@ -13,7 +13,12 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [],
+				"userProperties": [
+					{
+						"name": "FilePrefix",
+						"value": "@pipeline().parameters.FilePrefix"
+					}
+				],
 				"typeProperties": {
 					"dataset": {
 						"referenceName": "MNRSource",
