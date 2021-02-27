@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Get Metadata1",
+				"name": "Get_Folder_MetaData_AC",
 				"type": "GetMetadata",
 				"dependsOn": [],
 				"policy": {
@@ -42,7 +42,7 @@
 				"type": "ForEach",
 				"dependsOn": [
 					{
-						"activity": "Get Metadata1",
+						"activity": "Get_Folder_MetaData_AC",
 						"dependencyConditions": [
 							"Succeeded"
 						]
