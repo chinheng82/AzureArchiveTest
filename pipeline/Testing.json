@@ -92,11 +92,6 @@
 				}
 			}
 		],
-		"variables": {
-			"testVariable": {
-				"type": "String"
-			}
-		},
 		"annotations": []
 	}
 }
