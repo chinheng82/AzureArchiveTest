@@ -1,0 +1,23 @@
+{
+	"name": "MNRSource_Files",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"FileName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "data/mft/gf/mnr/adls",
+				"fileSystem": "mftadlsv2"
+			}
+		}
+	}
+}
