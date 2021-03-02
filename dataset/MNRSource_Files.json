@@ -15,8 +15,11 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "@dataset().FileName",
-				"folderPath": "data/mft/gf/mnr/adls",
+				"fileName": {
+					"value": "@dataset().FileName",
+					"type": "Expression"
+				},
+				"folderPath": "data/mft/gf/mnr/adls/incoming",
 				"fileSystem": "mftadlsv2"
 			}
 		}
