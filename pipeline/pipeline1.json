@@ -148,7 +148,7 @@
 										],
 										"outputs": [
 											{
-												"referenceName": "DestinationDataset_f18",
+												"referenceName": "MNRDestination",
 												"type": "DatasetReference"
 											}
 										]
