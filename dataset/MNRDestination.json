@@ -1,0 +1,18 @@
+{
+	"name": "MNRDestination",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ArchiveADLSGen2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "data/mft/gf/mnr/peo/incoming",
+				"fileSystem": "peoadlsv2"
+			}
+		}
+	}
+}
