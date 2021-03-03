@@ -284,6 +284,59 @@
 											"value": "@greaterOrEquals(activity('Get_File_Metadata_AC').output.lastModified,addminutes(utcnow(),-30))",
 											"type": "Expression"
 										},
+										"ifFalseActivities": [
+											{
+												"name": "CopyFalse",
+												"type": "Copy",
+												"dependsOn": [],
+												"policy": {
+													"timeout": "7.00:00:00",
+													"retry": 0,
+													"retryIntervalInSeconds": 30,
+													"secureOutput": false,
+													"secureInput": false
+												},
+												"userProperties": [],
+												"typeProperties": {
+													"source": {
+														"type": "BinarySource",
+														"storeSettings": {
+															"type": "AzureBlobFSReadSettings",
+															"recursive": true
+														},
+														"formatSettings": {
+															"type": "BinaryReadSettings"
+														}
+													},
+													"sink": {
+														"type": "BinarySink",
+														"storeSettings": {
+															"type": "AzureBlobFSWriteSettings"
+														}
+													},
+													"enableStaging": false
+												},
+												"inputs": [
+													{
+														"referenceName": "MNRSource_Files",
+														"type": "DatasetReference",
+														"parameters": {
+															"FileName": {
+																"value": "@activity('Get_File_Metadata_AC').output.itemName",
+																"type": "Expression"
+															}
+														}
+													}
+												],
+												"outputs": [
+													{
+														"referenceName": "MNRDestination2",
+														"type": "DatasetReference",
+														"parameters": {}
+													}
+												]
+											}
+										],
 										"ifTrueActivities": [
 											{
 												"name": "Copy_Data_AC",
@@ -348,6 +401,7 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/MNRSource')]",
 				"[concat(variables('factoryId'), '/datasets/MNRSource_Files')]",
+				"[concat(variables('factoryId'), '/datasets/MNRDestination2')]",
 				"[concat(variables('factoryId'), '/datasets/MNRDestination')]"
 			]
 		},
@@ -628,6 +682,29 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/ExtractPipeline')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/MNRDestination2')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ArchiveADLSGen2",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Binary",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "data/mft/gf/mnr/peo/outgoing",
+						"fileSystem": "peoadlsv2"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ArchiveADLSGen2')]"
 			]
 		}
 	]
