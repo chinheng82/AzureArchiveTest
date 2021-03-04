@@ -284,6 +284,14 @@
 					"referenceName": "ArchiveADLSGen2",
 					"type": "LinkedServiceReference"
 				},
+				"parameters": {
+					"MNRFileName": {
+						"type": "string"
+					},
+					"MNRLotname": {
+						"type": "string"
+					}
+				},
 				"annotations": [],
 				"type": "Binary",
 				"typeProperties": {
@@ -602,7 +610,13 @@
 													{
 														"referenceName": "MNRDestination2",
 														"type": "DatasetReference",
-														"parameters": {}
+														"parameters": {
+															"MNRFileName": "@activity('Get_File_Metadata_AC').output.itemName",
+															"MNRLotname": {
+																"value": "@split(activity('Get_Folder_Metadata_AC').output,'_')[4]",
+																"type": "Expression"
+															}
+														}
 													}
 												]
 											}
