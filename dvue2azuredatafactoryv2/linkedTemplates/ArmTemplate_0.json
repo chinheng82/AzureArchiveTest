@@ -82,7 +82,7 @@
 					"location": {
 						"type": "AzureBlobFSLocation",
 						"folderPath": {
-							"value": "@dataset().peopath",
+							"value": "dataset().peopath\n",
 							"type": "Expression"
 						},
 						"fileSystem": "peoadlsv2"
@@ -139,11 +139,11 @@
 					"location": {
 						"type": "AzureBlobFSLocation",
 						"fileName": {
-							"value": "@datasdata/mft/gf/et().MNRFileName",
+							"value": "@dataset().MNRFileName",
 							"type": "Expression"
 						},
 						"folderPath": {
-							"value": "@dataset().MNRLotName",
+							"value": "@concat('data/mft/gf/mnr/peo/outgoing/', dataset().MNRLotName)",
 							"type": "Expression"
 						},
 						"fileSystem": "peoadlsv2"
@@ -620,7 +620,7 @@
 														"parameters": {
 															"MNRFileName": "@activity('Get_File_Metadata_AC').output.itemName",
 															"MNRLotname": {
-																"value": "@split(activity('Get_File_Metadata_AC').output.ItemName,'_')[4]",
+																"value": "@split(activity('Get_File_Metadata_AC').output.ItemName,'_')[3]",
 																"type": "Expression"
 															}
 														}
