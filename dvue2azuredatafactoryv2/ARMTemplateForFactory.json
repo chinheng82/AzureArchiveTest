@@ -466,6 +466,44 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/MNRDestination2')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ArchiveADLSGen2",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"MNRFileName": {
+						"type": "string"
+					},
+					"MNRLotname": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "Binary",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": {
+							"value": "@datasdata/mft/gf/et().MNRFileName",
+							"type": "Expression"
+						},
+						"folderPath": {
+							"value": "@dataset().MNRLotName",
+							"type": "Expression"
+						},
+						"fileSystem": "peoadlsv2"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ArchiveADLSGen2')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/MNRSource')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -688,38 +726,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/ExtractPipeline')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/MNRDestination2')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ArchiveADLSGen2",
-					"type": "LinkedServiceReference"
-				},
-				"parameters": {
-					"MNRFileName": {
-						"type": "string"
-					},
-					"MNRLotname": {
-						"type": "string"
-					}
-				},
-				"annotations": [],
-				"type": "Binary",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileName": "@dataset().MNRFileName",
-						"folderPath": "data/mft/gf/mnr/peo/outgoing/@dataset().MNRFileName",
-						"fileSystem": "peoadlsv2"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ArchiveADLSGen2')]"
 			]
 		}
 	]
