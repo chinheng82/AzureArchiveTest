@@ -155,7 +155,7 @@
 												"parameters": {
 													"MNRFileName": "@activity('Get_File_Metadata_AC').output.itemName",
 													"MNRLotname": {
-														"value": "@split(activity('Get_File_Metadata_AC').output.itemName,'_')[4]",
+														"value": "@split(activity('Get_File_Metadata_AC').output.ItemName,'_')[4]",
 														"type": "Expression"
 													}
 												}
