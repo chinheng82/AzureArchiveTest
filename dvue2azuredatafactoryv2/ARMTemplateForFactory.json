@@ -713,7 +713,7 @@
 					"location": {
 						"type": "AzureBlobFSLocation",
 						"fileName": "@dataset().MNRFileName",
-						"folderPath": "data/mft/gf/mnr/peo/outgoing/@dataset().MNRLotname",
+						"folderPath": "data/mft/gf/mnr/peo/outgoing/@dataset().MNRFileName",
 						"fileSystem": "peoadlsv2"
 					}
 				}
