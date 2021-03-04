@@ -23,7 +23,7 @@
 					"type": "Expression"
 				},
 				"folderPath": {
-					"value": "@dataset().MNRLotName",
+					"value": "@concat('data', '/', dataset().MNRLotName)",
 					"type": "Expression"
 				},
 				"fileSystem": "peoadlsv2"

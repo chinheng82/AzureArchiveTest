@@ -16,7 +16,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": {
-					"value": "@dataset().peopath",
+					"value": "dataset().peopath\n",
 					"type": "Expression"
 				},
 				"fileSystem": "peoadlsv2"
