@@ -5,6 +5,14 @@
 			"referenceName": "ArchiveADLSGen2",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"MNRFileName": {
+				"type": "string"
+			},
+			"MNRLotname": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "Binary",
 		"typeProperties": {
