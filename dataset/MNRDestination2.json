@@ -23,7 +23,7 @@
 					"type": "Expression"
 				},
 				"folderPath": {
-					"value": "@concat('data', '/', dataset().MNRLotName)",
+					"value": "@concat('data/mft/gf/mnr/peo/outgoing/', dataset().MNRLotName)",
 					"type": "Expression"
 				},
 				"fileSystem": "peoadlsv2"
