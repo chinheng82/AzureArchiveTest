@@ -18,8 +18,14 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "@datasdata/mft/gf/et().MNRFileName",
-				"folderPath": "@dataset().MNRLotName",
+				"fileName": {
+					"value": "@dataset().MNRFileName",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().MNRLotName",
+					"type": "Expression"
+				},
 				"fileSystem": "peoadlsv2"
 			}
 		}
