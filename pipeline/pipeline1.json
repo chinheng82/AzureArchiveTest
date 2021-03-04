@@ -151,7 +151,14 @@
 										"outputs": [
 											{
 												"referenceName": "MNRDestination2",
-												"type": "DatasetReference"
+												"type": "DatasetReference",
+												"parameters": {
+													"MNRFileName": "@activity('Get_File_Metadata_AC').output.itemName",
+													"MNRLotname": {
+														"value": "@split(activity('Get_Folder_Metadata_AC').output,'_')[4]",
+														"type": "Expression"
+													}
+												}
 											}
 										]
 									}
