@@ -1,0 +1,21 @@
+{
+	"name": "IRADLSGen2",
+	"properties": {
+		"type": "Managed",
+		"typeProperties": {
+			"computeProperties": {
+				"location": "East US 2",
+				"dataFlowProperties": {
+					"computeType": "General",
+					"coreCount": 48,
+					"timeToLive": 15,
+					"cleanup": false
+				}
+			}
+		},
+		"managedVirtualNetwork": {
+			"type": "ManagedVirtualNetworkReference",
+			"referenceName": "default"
+		}
+	}
+}
