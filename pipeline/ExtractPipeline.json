@@ -92,6 +92,10 @@
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
+							"modifiedDatetimeStart": {
+								"value": "@string(formatDateTime(addminutes(utcnow(),-30),'yyyy-MM-ddThh:mm:ss.fffZ'))",
+								"type": "Expression"
+							},
 							"modifiedDatetimeEnd": {
 								"value": "@string(formatDateTime(addminutes(utcnow(),-30),'yyyy-MM-ddThh:mm:ss.fffZ'))",
 								"type": "Expression"
