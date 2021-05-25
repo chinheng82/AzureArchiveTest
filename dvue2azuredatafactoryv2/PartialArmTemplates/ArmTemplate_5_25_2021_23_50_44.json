@@ -1,0 +1,26 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "dvue2azuredatafactoryv2"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/default/adlsue2pv')]",
+			"type": "Microsoft.DataFactory/factories/managedVirtualNetworks/managedPrivateEndpoints",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"privateLinkResourceId": "/subscriptions/6d3d998c-abd9-4369-9f7a-9fc9a69ea4e4/resourceGroups/dvue2-adlsv2-rg/providers/Microsoft.Storage/storageAccounts/dvue2azuredatalakev2",
+				"groupId": "dfs"
+			},
+			"dependsOn": []
+		}
+	]
+}
