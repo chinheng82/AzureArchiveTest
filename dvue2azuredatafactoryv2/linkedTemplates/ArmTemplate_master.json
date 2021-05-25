@@ -23,6 +23,14 @@
 			"type": "string",
 			"defaultValue": "https://dvue2azuredatalakev2.dfs.core.windows.net"
 		},
+		"adlsue2pv_properties_privateLinkResourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/6d3d998c-abd9-4369-9f7a-9fc9a69ea4e4/resourceGroups/dvue2-adlsv2-rg/providers/Microsoft.Storage/storageAccounts/dvue2azuredatalakev2"
+		},
+		"adlsue2pv_properties_groupId": {
+			"type": "string",
+			"defaultValue": "dfs"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -55,6 +63,12 @@
 					},
 					"AzureDataLakeStorage1_accountKey": {
 						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					},
+					"adlsue2pv_properties_privateLinkResourceId": {
+						"value": "[parameters('adlsue2pv_properties_privateLinkResourceId')]"
+					},
+					"adlsue2pv_properties_groupId": {
+						"value": "[parameters('adlsue2pv_properties_groupId')]"
 					},
 					"ArchiveADLSGen2_properties_typeProperties_url": {
 						"value": "[parameters('ArchiveADLSGen2_properties_typeProperties_url')]"

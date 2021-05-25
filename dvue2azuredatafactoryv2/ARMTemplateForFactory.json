@@ -22,6 +22,14 @@
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://dvue2azuredatalakev2.dfs.core.windows.net"
+		},
+		"adlsue2pv_properties_privateLinkResourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/6d3d998c-abd9-4369-9f7a-9fc9a69ea4e4/resourceGroups/dvue2-adlsv2-rg/providers/Microsoft.Storage/storageAccounts/dvue2azuredatalakev2"
+		},
+		"adlsue2pv_properties_groupId": {
+			"type": "string",
+			"defaultValue": "dfs"
 		}
 	},
 	"variables": {
@@ -97,7 +105,7 @@
 								"type": "DatasetReference",
 								"parameters": {
 									"peopath": {
-										"value": "@concat('data','/',\n'mft','/','suzjv','/','classtar','/','peo','/','incoming','/',formatDateTime(utcnow(),'yyyy'),formatDateTime(utcnow(),'MM'),formatDateTime(utcnow(),'dd'))",
+										"value": "@concat('data','/','mft','/','suzjv','/','classtar','/','peo','/','incoming','/',formatDateTime(utcnow(),'yyyy'),formatDateTime(utcnow(),'MM'),formatDateTime(utcnow(),'dd'))",
 										"type": "Expression"
 									}
 								}
@@ -431,7 +439,7 @@
 					"location": {
 						"type": "AzureBlobFSLocation",
 						"folderPath": {
-							"value": "dataset().peopath\n",
+							"value": "@dataset().peopath",
 							"type": "Expression"
 						},
 						"fileSystem": "peoadlsv2"
@@ -741,6 +749,32 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/IRADLSGen2')]",
+			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "Managed",
+				"typeProperties": {
+					"computeProperties": {
+						"location": "East US 2",
+						"dataFlowProperties": {
+							"computeType": "General",
+							"coreCount": 48,
+							"timeToLive": 15,
+							"cleanup": false
+						}
+					}
+				},
+				"managedVirtualNetwork": {
+					"type": "ManagedVirtualNetworkReference",
+					"referenceName": "default"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/managedVirtualNetworks/default')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/integrationRuntime1')]",
 			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
 			"apiVersion": "2018-06-01",
@@ -774,6 +808,18 @@
 				"preventDataExfiltration": false
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/default/adlsue2pv')]",
+			"type": "Microsoft.DataFactory/factories/managedVirtualNetworks/managedPrivateEndpoints",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"privateLinkResourceId": "[parameters('adlsue2pv_properties_privateLinkResourceId')]",
+				"groupId": "[parameters('adlsue2pv_properties_groupId')]"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/managedVirtualNetworks/default')]"
+			]
 		}
 	]
 }
