@@ -29,10 +29,6 @@
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
-							"modifiedDatetimeEnd": {
-								"value": "@string(formatDateTime(addminutes(utcnow(),-20),'yyyy-MM-ddThh:mm:ss.fffZ'))",
-								"type": "Expression"
-							},
 							"deleteFilesAfterCompletion": false
 						},
 						"formatSettings": {
