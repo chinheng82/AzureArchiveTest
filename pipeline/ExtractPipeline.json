@@ -64,7 +64,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"peopath": {
-								"value": "@concat('data','/',\n'mft','/','suzjv','/','classtar','/','peo','/','incoming','/',formatDateTime(utcnow(),'yyyy'),formatDateTime(utcnow(),'MM'),formatDateTime(utcnow(),'dd'))",
+								"value": "@concat('data','/','mft','/','suzjv','/','classtar','/','peo','/','incoming','/',formatDateTime(utcnow(),'yyyy'),formatDateTime(utcnow(),'MM'),formatDateTime(utcnow(),'dd'))",
 								"type": "Expression"
 							}
 						}
