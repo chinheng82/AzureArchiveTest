@@ -93,7 +93,7 @@
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
 							"modifiedDatetimeEnd": {
-								"value": "@string(formatDateTime(addhours(utcnow(),6),'yyyy-MM-ddThh:mm:ss.fffZ'))",
+								"value": "@string(formatDateTime(addhours(utcnow(),7),'yyyy-MM-ddThh:mm:ss.fffZ'))",
 								"type": "Expression"
 							},
 							"deleteFilesAfterCompletion": true
