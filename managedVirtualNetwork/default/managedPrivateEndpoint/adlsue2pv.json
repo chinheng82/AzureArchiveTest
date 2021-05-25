@@ -1,0 +1,7 @@
+{
+	"name": "adlsue2pv",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/6d3d998c-abd9-4369-9f7a-9fc9a69ea4e4/resourceGroups/dvue2-adlsv2-rg/providers/Microsoft.Storage/storageAccounts/dvue2azuredatalakev2",
+		"groupId": "dfs"
+	}
+}
