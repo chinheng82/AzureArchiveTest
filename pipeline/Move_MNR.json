@@ -23,11 +23,7 @@
 							"deleteFilesAfterCompletion": true
 						},
 						"formatSettings": {
-							"type": "BinaryReadSettings",
-							"compressionProperties": {
-								"type": "TarGZipReadSettings",
-								"preserveCompressionFileNameAsFolder": false
-							}
+							"type": "BinaryReadSettings"
 						}
 					},
 					"sink": {
@@ -41,7 +37,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SourceDataset_f18",
+						"referenceName": "MNRSource",
 						"type": "DatasetReference"
 					}
 				],
