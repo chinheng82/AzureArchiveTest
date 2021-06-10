@@ -13,16 +13,7 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [
-					{
-						"name": "Source",
-						"value": "mftadlsv2/ch/"
-					},
-					{
-						"name": "Destination",
-						"value": "archiveadlsv2/archive/"
-					}
-				],
+				"userProperties": [],
 				"typeProperties": {
 					"source": {
 						"type": "BinarySource",
