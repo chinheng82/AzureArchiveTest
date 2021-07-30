@@ -49,6 +49,8 @@
 						"value": "@activity('Get_Folder_Metadata_AC').output.childitems\n",
 						"type": "Expression"
 					},
+					"isSequential": false,
+					"batchCount": 50,
 					"activities": [
 						{
 							"name": "Get_File_Metadata_AC",
