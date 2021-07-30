@@ -200,7 +200,7 @@
 												}
 											},
 											"enableStaging": false,
-											"parallelCopies": 10000,
+											"parallelCopies": 100000,
 											"dataIntegrationUnits": 256
 										},
 										"inputs": [
