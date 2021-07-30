@@ -46,11 +46,11 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Get_Folder_Metadata_AC').output.childitems\n",
+						"value": "@activity('Get_Folder_Metadata_AC').output.childitems",
 						"type": "Expression"
 					},
 					"isSequential": false,
-					"batchCount": 50,
+					"batchCount": 500,
 					"activities": [
 						{
 							"name": "Get_File_Metadata_AC",
@@ -138,7 +138,7 @@
 												}
 											},
 											"enableStaging": false,
-											"parallelCopies": 10000,
+											"parallelCopies": 100000,
 											"dataIntegrationUnits": 256
 										},
 										"inputs": [
