@@ -134,7 +134,9 @@
 													"type": "AzureBlobFSWriteSettings"
 												}
 											},
-											"enableStaging": false
+											"enableStaging": false,
+											"parallelCopies": 10000,
+											"dataIntegrationUnits": 256
 										},
 										"inputs": [
 											{
@@ -193,7 +195,9 @@
 													"type": "AzureBlobFSWriteSettings"
 												}
 											},
-											"enableStaging": false
+											"enableStaging": false,
+											"parallelCopies": 10000,
+											"dataIntegrationUnits": 256
 										},
 										"inputs": [
 											{
@@ -221,6 +225,7 @@
 				}
 			}
 		],
+		"concurrency": 50,
 		"annotations": []
 	}
 }
