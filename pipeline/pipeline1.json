@@ -50,7 +50,7 @@
 						"type": "Expression"
 					},
 					"isSequential": false,
-					"batchCount": 500,
+					"batchCount": 50,
 					"activities": [
 						{
 							"name": "Get_File_Metadata_AC",
