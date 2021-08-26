@@ -19,7 +19,7 @@
 					"value": "@dataset().peopath",
 					"type": "Expression"
 				},
-				"fileSystem": "peoadlsv2"
+				"fileSystem": "gopsarch"
 			}
 		}
 	}

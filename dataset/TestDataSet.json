@@ -11,7 +11,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": "ch",
-				"fileSystem": "mftadlsv2"
+				"fileSystem": "mfttestdata"
 			}
 		}
 	}

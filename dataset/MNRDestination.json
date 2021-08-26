@@ -11,7 +11,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": "data/mft/gf/mnr/peo/incoming",
-				"fileSystem": "peoadlsv2"
+				"fileSystem": "gopsarch"
 			}
 		}
 	}
